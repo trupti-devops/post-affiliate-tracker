@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: post-tracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: post-tracker
+  template:
+    metadata:
+      labels:
+        app: post-tracker
+    spec:
+      containers:
+      - name: post-tracker
+        image: post-tracker:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
